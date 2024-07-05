@@ -31,7 +31,6 @@ app.get("/", async (req, res) => {
       "Hi! welcome to airport api , visit /api/airport to visit all airport data..visit http://localhost:3010/api/airport?iata_code=[iata_code]"
     );
 });
-// Serve static assets if in production
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);

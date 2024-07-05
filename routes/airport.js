@@ -59,6 +59,6 @@ router.get("/country", async (req, res) => {
 router.post("/city", cityController.createCity);
 router.post("/country", countryController.createCountry);
 
-router.get("/airport/:iata_code", airportController.getAirportByIataCode);
+router.get("/airport", airportController.getAirportByIataCode);
 
 module.exports = router;

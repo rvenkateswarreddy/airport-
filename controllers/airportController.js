@@ -1,17 +1,19 @@
 // src/controllers/airportController.js
+
 const Airport = require("../models/Airport");
 const City = require("../models/City");
 const Country = require("../models/Country");
 
 exports.getAirportByIataCode = async (req, res) => {
   const { iata_code } = req.query;
+  console.log(iata_code);
   try {
-    const airport = await Airport.findOne({ iata_code })
-      .populate("city_id")
-      .populate("country_id");
+    const airport = await Airport.findOne({ iata_code });
+    console.log(airport);
     if (!airport) {
-      return res.status(404).json({ message: "Null,Airport not found" });
+      return res.status(404).json({ message: "Null, Airport not found" });
     }
+
     const city = await City.findById(airport.city_id);
     const country = await Country.findById(airport.country_id);
 
@@ -48,6 +50,7 @@ exports.getAirportByIataCode = async (req, res) => {
       },
     });
   } catch (err) {
+    console.error(err);
     res.status(500).json({ message: "Server error" });
   }
 };
