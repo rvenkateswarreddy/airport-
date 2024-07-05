@@ -26,7 +26,7 @@ const countryController = require("../controllers/countryController");
 //     res.status(500).json({ message: error.message });
 //   }
 // });
-router.get("/airport", airportController.getAllAirports);
+router.get("/allairport", airportController.getAllAirports);
 router.post("/airport", airportController.createAirport);
 
 // Route to get a city by its name
