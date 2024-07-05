@@ -4,7 +4,7 @@ const City = require("../models/City");
 const Country = require("../models/Country");
 
 exports.getAirportByIataCode = async (req, res) => {
-  const { iata_code } = req.params;
+  const { iata_code } = req.query;
   try {
     const airport = await Airport.findOne({ iata_code })
       .populate("city_id")
