@@ -24,7 +24,13 @@ mongoose
 
 // API routes
 app.use("/api", airportRoutes);
-
+app.get("/", async (req, res) => {
+  res
+    .status(200)
+    .json(
+      "Hi! welcome to airport api , visit /api/airport to visit all airport data..visit /api/airport/[iata_code]"
+    );
+});
 // Serve static assets if in production
 
 app.listen(port, () => {
